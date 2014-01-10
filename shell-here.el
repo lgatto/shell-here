@@ -134,7 +134,7 @@ Project root is determined with `ffip-project-root', if available."
         ;; The (insert (prog1 …)) inserts it (or an empty string, if
         ;; we know we have a new buffer) back into the shell buffer
         ;; after having changed directories.
-        (flet ((kill-region (start end)
+        (cl-flet ((kill-region (start end)
                  (prog1
                      (buffer-substring start end) (delete-region start end))))
           (insert (prog1 (or (when (not new) (comint-kill-input)) "")
